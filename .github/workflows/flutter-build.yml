@@ -89,6 +89,10 @@ jobs:
         with:
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Fix submodule URL with token
+        run: |
+          git config --global url."https://${{ secrets.ACCESS_TOKEN }}@github.com/".insteadOf https://github.com/
           
 
       - name: Restore bridge files
